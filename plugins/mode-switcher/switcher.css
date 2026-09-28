@@ -1,0 +1,113 @@
+/* BetterGravity Mode Switcher Styles */
+
+.gemini-mode-switch-btn {
+  display: none !important;
+}
+
+.bg-mode-switcher-container {
+  padding: 6px 6px 4px 6px;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.18);
+  margin-bottom: 4px;
+}
+
+.bg-mode-switcher-title {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  opacity: 0.65;
+  padding: 2px 8px 6px;
+}
+
+.bg-mode-option {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 6px 10px !important;
+  border-radius: 8px !important;
+  cursor: pointer !important;
+  font-size: 13.5px !important;
+  line-height: 1.4 !important;
+  transition: all 0.15s ease !important;
+  user-select: none !important;
+  margin-bottom: 2px !important;
+  border: 1px solid transparent !important;
+}
+
+.bg-mode-option:hover {
+  background: rgba(75, 133, 238, 0.12) !important;
+}
+
+html[data-gemini-app="true"] .bg-mode-option:hover {
+  background: #EBE5DA !important;
+}
+
+.bg-mode-option.active {
+  background: rgba(75, 133, 238, 0.16) !important;
+  border-color: rgba(75, 133, 238, 0.25) !important;
+}
+
+html[data-gemini-app="true"] .bg-mode-option.active {
+  background: #E0D8CB !important;
+  border-color: #D6D0C7 !important;
+}
+
+.bg-mode-option-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.bg-mode-option-name {
+  font-weight: 600;
+}
+
+.bg-mode-option-tag {
+  font-size: 11px;
+  padding: 1px 6px;
+  border-radius: 9999px;
+  font-weight: 500;
+}
+
+.bg-mode-option-tag.tag-antigravity {
+  background: rgba(75, 133, 238, 0.18);
+  color: #2563EB;
+}
+
+.bg-mode-option-tag.tag-gemini {
+  background: rgba(204, 120, 92, 0.20);
+  color: #CC785C;
+}
+
+.bg-mode-option-check {
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.bg-mode-option-check.check-antigravity {
+  color: #2563EB;
+}
+
+.bg-mode-option-check.check-gemini {
+  color: #CC785C;
+}
+
+/* Antigravity mode dropdown glassmorphism enhancements */
+html:not([data-gemini-app="true"]) div.absolute.top-full.left-0.mt-1 {
+  background: rgba(255, 255, 255, 0.76) !important;
+  backdrop-filter: blur(24px) saturate(160%) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(160%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.85) !important;
+  box-shadow: 0 12px 36px rgba(30, 60, 110, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
+  border-radius: 12px !important;
+}
+
+/* Gemini Claude mode dropdown styling */
+html[data-gemini-app="true"] div.absolute.top-full.left-0.mt-1 {
+  background: #FAF9F5 !important;
+  border: 1px solid #E5E0D8 !important;
+  box-shadow: 0 8px 24px rgba(31, 30, 29, 0.08) !important;
+  border-radius: 10px !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}

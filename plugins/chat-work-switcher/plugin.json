@@ -1,0 +1,8 @@
+{
+  "name": "Chat Work Switcher",
+  "description": "Seamlessly switch between Claude 1:1 replica chat experience and Antigravity custom dream work interface.",
+  "version": "1.0.0",
+  "author": "Antigravity UI/UX Studio",
+  "main": "index.js",
+  "styles": "switcher.css"
+}

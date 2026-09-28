@@ -1,0 +1,8 @@
+# Core dependencies for Antigravity-skin wallpaper processing and atlas generation
+Pillow>=10.0.0
+numpy>=1.24.0
+opencv-python>=4.8.0
+
+# Optional runtime for DevTools automation and deployment inspection
+requests>=2.31.0
+websocket-client>=1.6.0

@@ -1,0 +1,19 @@
+{
+  "name": "antigravity-skin",
+  "version": "5.0.0",
+  "description": "Production themes, dual-experience mode switchers, and desktop pet for BetterGravity & Antigravity",
+  "main": "themes/dream-starlight/build_theme.js",
+  "scripts": {
+    "build:theme": "node themes/dream-starlight/build_theme.js",
+    "deploy": "python tools/deploy.py"
+  },
+  "keywords": [
+    "antigravity",
+    "bettergravity",
+    "theme",
+    "css",
+    "desktop-pet"
+  ],
+  "author": "sylzhenshuai",
+  "license": "MIT"
+}

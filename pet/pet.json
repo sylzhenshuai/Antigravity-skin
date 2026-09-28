@@ -1,0 +1,25 @@
+{
+  "$schema": "https://bettergravity.dev/schemas/pet-v2.json",
+  "id": "doraemon",
+  "displayName": "哆啦A梦 3D版 (Doraemon 3D)",
+  "description": "全3D CGI立体质感桌宠：3D竹蜻蜓悬浮浮沉、四次元空间掏宝光效、立体铜锣烧治愈进食、3D旋转蚊香眼与光标景深视差倾角跟随。",
+  "author": "Antigravity UI/UX Studio",
+  "version": "3.0.0",
+  "spriteVersionNumber": 2,
+  "spritesheetPath": "spritesheet.webp",
+  "previewPath": "preview.png",
+  "themeSync": {
+    "accentColor": "#00A0E9",
+    "highlightColor": "#FFD000",
+    "dangerColor": "#E60012",
+    "surface": "rgba(255, 255, 255, 0.95)"
+  },
+  "capabilities": {
+    "lookTracking": true,
+    "agentStateSync": true,
+    "draggable": true,
+    "interactiveClick": true,
+    "spatial3dPerspective": true,
+    "dynamicCursorTilt": true
+  }
+}

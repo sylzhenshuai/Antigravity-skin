@@ -1,0 +1,8 @@
+{
+  "name": "Mode Switcher",
+  "description": "Switch between Antigravity custom theme and Gemini Claude 1:1 replica mode from the top-left Antigravity menu.",
+  "version": "1.0.0",
+  "author": "Antigravity Team",
+  "main": "index.js",
+  "styles": "switcher.css"
+}

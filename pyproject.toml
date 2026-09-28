@@ -1,0 +1,78 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "antigravity-skin"
+version = "5.0.0"
+description = "Theme, dual-experience switchers, desktop pet, and wallpaper processing pipeline for Antigravity & BetterGravity"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [
+    { name = "sylzhenshuai" }
+]
+keywords = [
+    "antigravity",
+    "bettergravity",
+    "theme",
+    "desktop-pet",
+    "claude-replica",
+    "wallpaper-grading",
+    "ui-ux"
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: POSIX :: Linux",
+    "Operating System :: MacOS",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Multimedia :: Graphics",
+    "Topic :: Software Development :: Libraries :: Python Modules"
+]
+
+dependencies = [
+    "Pillow>=10.0.0",
+    "numpy>=1.24.0",
+    "opencv-python>=4.8.0"
+]
+
+[project.optional-dependencies]
+cdp = [
+    "requests>=2.31.0",
+    "websocket-client>=1.6.0"
+]
+dev = [
+    "pytest>=7.0.0",
+    "black>=23.0.0",
+    "ruff>=0.1.0",
+    "mypy>=1.5.0"
+]
+
+[project.scripts]
+antigravity-skin-deploy = "tools.deploy:main"
+antigravity-skin-wallpaper = "tools.wallpaper_processor:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["tools*"]
+exclude = ["tests*", "assets*", "themes*", "plugins*", "pet*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W", "B", "D"]
+ignore = ["D100", "D104"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"

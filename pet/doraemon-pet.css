@@ -1,0 +1,241 @@
+/**
+ * Doraemon 3D Pet Component Styles & Spatial Depth
+ * 哆啦A梦 3D 桌宠空间拟态与高质感光影样式表
+ */
+
+.bettergravity-doraemon-pet {
+  position: fixed;
+  z-index: 99999;
+  user-select: none;
+  cursor: grab;
+  touch-action: none;
+  perspective: 900px;
+  transform-style: preserve-3d;
+  transition: transform 0.12s cubic-bezier(0.2, 0.9, 0.4, 1);
+}
+
+.bettergravity-doraemon-pet.dora-dragging {
+  cursor: grabbing;
+  transform: scale3d(1.08, 1.08, 1.08) translateZ(30px);
+  filter: drop-shadow(0 20px 30px rgba(0, 70, 160, 0.45));
+}
+
+/* 3D 拟态地表投影 (Ground 3D Ambient Shadow) */
+.dora-ground-shadow {
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  transform: translateX(-50%) rotateX(75deg);
+  width: 76px;
+  height: 26px;
+  background: radial-gradient(ellipse at center, rgba(12, 32, 64, 0.48) 0%, rgba(12, 32, 64, 0.18) 55%, transparent 75%);
+  border-radius: 50%;
+  pointer-events: none;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease;
+  z-index: 1;
+}
+
+/* 核心 3D 精灵图画框 */
+.dora-sprite-canvas {
+  position: relative;
+  z-index: 2;
+  background-repeat: no-repeat;
+  image-rendering: auto;
+  image-rendering: -webkit-optimize-contrast;
+  transform-style: preserve-3d;
+  will-change: transform, filter;
+  filter: drop-shadow(0 10px 22px rgba(0, 100, 200, 0.32)) drop-shadow(0 2px 6px rgba(0, 0, 0, 0.14));
+  transition: filter 0.3s ease, transform 0.15s ease-out;
+}
+
+/* 鼠标悬停 3D 浮凸微光 */
+.bettergravity-doraemon-pet:hover .dora-sprite-canvas {
+  filter: drop-shadow(0 14px 28px rgba(0, 160, 233, 0.52)) drop-shadow(0 0 14px rgba(255, 208, 0, 0.58));
+}
+
+/* 悬停地表阴影略微收紧 */
+.bettergravity-doraemon-pet:hover .dora-ground-shadow {
+  transform: translateX(-50%) rotateX(75deg) scale(0.92);
+  opacity: 0.55;
+}
+
+/* 状态 3D 动效：thinking (竹蜻蜓 3D 空间回旋与悬浮浮沉) */
+.dora-state-thinking .dora-sprite-canvas {
+  animation: dora-3d-levitate 1.5s ease-in-out infinite;
+}
+
+.dora-state-thinking .dora-ground-shadow {
+  animation: dora-3d-shadow-fade 1.5s ease-in-out infinite;
+}
+
+@keyframes dora-3d-levitate {
+  0%, 100% {
+    transform: translate3d(0, -6px, 15px) rotateX(2deg) rotateY(-2deg);
+  }
+  50% {
+    transform: translate3d(0, -18px, 35px) rotateX(-2deg) rotateY(3deg);
+  }
+}
+
+@keyframes dora-3d-shadow-fade {
+  0%, 100% {
+    transform: translateX(-50%) rotateX(75deg) scale(1.1);
+    opacity: 0.36;
+  }
+  50% {
+    transform: translateX(-50%) rotateX(75deg) scale(1.35);
+    opacity: 0.22;
+  }
+}
+
+/* 状态 3D 动效：running (四次元口袋掏道具，微弹性) */
+.dora-state-running .dora-sprite-canvas {
+  animation: dora-3d-pocket-dig 0.32s ease-in-out infinite;
+}
+
+@keyframes dora-3d-pocket-dig {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+  }
+  50% {
+    transform: translate3d(0, 2px, 8px) scale3d(1.03, 0.97, 1.02);
+  }
+}
+
+/* 状态 3D 动效：error (蚊香眼 3D 颤抖与失衡) */
+.dora-state-error .dora-sprite-canvas {
+  animation: dora-3d-dizzy-shake 0.36s ease-in-out infinite;
+}
+
+@keyframes dora-3d-dizzy-shake {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) rotateZ(0deg) rotateY(0deg);
+  }
+  25% {
+    transform: translate3d(-4px, 0, 10px) rotateZ(-3deg) rotateY(-6deg);
+  }
+  75% {
+    transform: translate3d(4px, 0, 10px) rotateZ(3deg) rotateY(6deg);
+  }
+}
+
+/* 状态 3D 动效：success (吃铜锣烧 3D 跃起庆祝) */
+.dora-state-success .dora-sprite-canvas {
+  animation: dora-3d-joy-jump 0.7s cubic-bezier(0.25, 1.4, 0.5, 1);
+}
+
+.dora-state-success .dora-ground-shadow {
+  animation: dora-3d-jump-shadow 0.7s ease-out;
+}
+
+@keyframes dora-3d-joy-jump {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+  }
+  35% {
+    transform: translate3d(0, -22px, 40px) scale3d(1.08, 0.94, 1.05);
+  }
+  70% {
+    transform: translate3d(0, 3px, -5px) scale3d(0.96, 1.05, 0.98);
+  }
+}
+
+@keyframes dora-3d-jump-shadow {
+  0%, 100% {
+    transform: translateX(-50%) rotateX(75deg) scale(1);
+    opacity: 0.48;
+  }
+  35% {
+    transform: translateX(-50%) rotateX(75deg) scale(1.4);
+    opacity: 0.16;
+  }
+  70% {
+    transform: translateX(-50%) rotateX(75deg) scale(0.9);
+    opacity: 0.6;
+  }
+}
+
+/* 点击 3D 弹性反馈 */
+.dora-click-bounce {
+  animation: dora-3d-click 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
+
+@keyframes dora-3d-click {
+  0% {
+    transform: scale3d(1, 1, 1);
+  }
+  35% {
+    transform: scale3d(1.15, 0.86, 1.1) translateZ(15px);
+  }
+  65% {
+    transform: scale3d(0.92, 1.12, 0.95) translateZ(-5px);
+  }
+  100% {
+    transform: scale3d(1, 1, 1) translateZ(0);
+  }
+}
+
+/* 拟态玻璃状态气泡 */
+.dora-status-badge {
+  position: absolute;
+  top: -36px;
+  left: 50%;
+  transform: translateX(-50%) translateZ(25px);
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(0, 160, 233, 0.38);
+  border-radius: 9999px;
+  padding: 4px 14px;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #0F2540;
+  white-space: nowrap;
+  pointer-events: none;
+  box-shadow: 0 6px 18px rgba(0, 120, 215, 0.22), 0 0 10px rgba(255, 208, 0, 0.45);
+  animation: dora-badge-pop 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 10;
+}
+
+@keyframes dora-badge-pop {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(8px) scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0) scale(1);
+  }
+}
+
+/* 特效粒子层 */
+.dora-fx-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: visible;
+  z-index: 5;
+  transform-style: preserve-3d;
+}
+
+.dora-particle {
+  position: absolute;
+  font-size: 18px;
+  pointer-events: none;
+  animation: dora-particle-float 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes dora-particle-float {
+  0% {
+    opacity: 0;
+    transform: translate3d(-50%, 0, 10px) scale(0.5);
+  }
+  25% {
+    opacity: 1;
+    transform: translate3d(-50%, -12px, 25px) scale(1.25);
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(calc(-50% + 15px), -48px, 40px) scale(1);
+  }
+}

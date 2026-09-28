@@ -1,0 +1,113 @@
+# ==============================================================================
+# Git Ignore Rules for Antigravity-skin
+# ==============================================================================
+
+# --- Environment & Sensitive Credentials ---
+.env
+.env.*
+!.env.example
+*.env
+*.pem
+*.key
+*.token
+*.secret
+*credentials*
+*apikey*
+*api_key*
+*auth*.json
+*token*.json
+guardian-pending.json
+
+# --- Python Build & Cache ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# --- Virtual Environments ---
+venv/
+.venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+conda-env/
+
+# --- Testing & Quality Assurance ---
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+.hypothesis/
+.ruff_cache/
+.mypy_cache/
+
+# --- Node & JavaScript ---
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+.pnpm-store/
+
+# --- IDE & Editor Configuration ---
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+*.sublime-project
+*.sublime-workspace
+
+# --- Operating System Artifacts ---
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+[Dd]esktop.ini
+
+# --- Large Temporary Test Screenshots & Inspection Dumps ---
+*.tmp
+*.log
+live_*.png
+test_*.png
+updated_*.png
+settings_screen.png
+watermark_crop.png
+inpainted_*.png
+face_sharpness_check.png
+corner_*.png
+sample_*.png
+exact_watermark_crop.png
+hd_corner_check.png
+method_*.png
+result_*.png
+sub_mask.png
+preview_eyes.png
+original_eyes_sample.png
+current_app_shot.png
+test_cell*.png
+test_copter*.png
